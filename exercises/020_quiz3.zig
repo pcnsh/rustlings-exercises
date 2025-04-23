@@ -1,5 +1,4 @@
-//
-// Let's see if we can make use of some of the things we've learned so far.
+
 // We'll create two functions: one that contains a "for" loop and one
 // that contains a "while" loop.
 //
@@ -21,8 +20,8 @@ pub fn main() void {
 //
 // This function prints, but does not return anything.
 //
-fn printPowersOfTwo(numbers: [4]u16) ??? {
-    loop (numbers) |n| {
+fn printPowersOfTwo(numbers: [4]u16) void {
+    for (numbers) |n| {
         std.debug.print("{} ", .{twoToThe(n)});
     }
 }
@@ -31,13 +30,13 @@ fn printPowersOfTwo(numbers: [4]u16) ??? {
 // exercise. But don't be fooled! This one does the math without the aid
 // of the standard library!
 //
-fn twoToThe(number: u16) ??? {
+fn twoToThe(number: u16) u16 {
     var n: u16 = 0;
     var total: u16 = 1;
 
-    loop (n < number) : (n += 1) {
+    while (n < number) : (n += 1) {
         total *= 2;
     }
 
-    return ???;
+    return total;
 }
